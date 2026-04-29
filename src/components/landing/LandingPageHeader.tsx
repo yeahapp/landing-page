@@ -27,7 +27,8 @@ type NavLink = {
   newTab?: boolean;
 };
 
-const PLATFORM_ITEMS: NavLink[] = [
+const ABOUT_ITEMS: NavLink[] = [
+  { label: "The Team", href: "/the-team" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   {
@@ -39,7 +40,7 @@ const PLATFORM_ITEMS: NavLink[] = [
 ];
 
 const NAV: NavItem[] = [
-  { kind: "group", label: "Platform", items: PLATFORM_ITEMS },
+  { kind: "group", label: "About", items: ABOUT_ITEMS },
   {
     kind: "link",
     label: "App",

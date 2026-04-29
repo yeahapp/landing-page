@@ -30,7 +30,7 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
+      { label: "The Team", href: "/the-team" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],

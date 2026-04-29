@@ -45,7 +45,7 @@ const values = [
   },
 ];
 
-export default function AboutPageContent() {
+export default function TheTeamPageContent() {
   const avatars = team.map((m) =>
     createAvatar(personas, { seed: m.seed, backgroundColor: [...m.bg] }).toDataUri(),
   );
