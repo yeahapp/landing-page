@@ -61,14 +61,18 @@ export default function LandingPageHeader() {
           className={cn(
             "flex h-14 items-center justify-between rounded-2xl border px-4 transition-all duration-300",
             isScrolled
-              ? "border-black/8 bg-white/90 shadow-xl shadow-black/8 backdrop-blur-xl"
-              : "border-black/5 bg-white/70 shadow-lg shadow-black/5 backdrop-blur-lg",
+              ? "border-white/10 bg-slate-900/90 shadow-xl shadow-black/40 backdrop-blur-xl"
+              : "border-white/10 bg-slate-900/80 shadow-lg shadow-black/30 backdrop-blur-lg",
           )}
         >
           {/* Left */}
           <div className="flex flex-1 items-center">
             {isMobile ? null : (
-              <Logo href="/" variant="wordmark" imageClassName="h-7 w-auto" />
+              <Logo
+                href="/"
+                variant="wordmark"
+                imageClassName="h-7 w-auto invert"
+              />
             )}
           </div>
 
@@ -80,7 +84,11 @@ export default function LandingPageHeader() {
             )}
           >
             {isMobile && (
-              <Logo href="/" variant="wordmark" imageClassName="h-7 w-auto" />
+              <Logo
+                href="/"
+                variant="wordmark"
+                imageClassName="h-7 w-auto invert"
+              />
             )}
           </div>
 
@@ -97,7 +105,7 @@ export default function LandingPageHeader() {
                         {...(item.newTab
                           ? { target: "_blank", rel: "noreferrer" }
                           : {})}
-                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                        className="text-sm font-medium text-slate-300 transition-colors duration-150 hover:text-white"
                       >
                         {item.label}
                       </a>
@@ -105,7 +113,7 @@ export default function LandingPageHeader() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                        className="text-sm font-medium text-slate-300 transition-colors duration-150 hover:text-white"
                       >
                         {item.label}
                       </Link>
@@ -120,7 +128,7 @@ export default function LandingPageHeader() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-9 w-9 p-0"
+                className="h-9 w-9 p-0 text-slate-300 hover:bg-white/10 hover:text-white"
                 onClick={() => setMobileMenuOpen((prev) => !prev)}
                 aria-label="Toggle menu"
               >
@@ -149,7 +157,7 @@ export default function LandingPageHeader() {
 
         {/* Mobile dropdown card */}
         {mobileMenuOpen && (
-          <div className="animate-in fade-in slide-in-from-top-2 duration-200 absolute top-full right-0 left-0 mt-2 rounded-2xl border border-black/5 bg-white/90 p-2 shadow-xl shadow-black/8 backdrop-blur-xl">
+          <div className="animate-in fade-in slide-in-from-top-2 duration-200 absolute top-full right-0 left-0 mt-2 rounded-2xl border border-white/10 bg-slate-900/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl">
             {NAV.map((item) =>
               item.kind === "link" ? (
                 <NavRow
@@ -208,7 +216,7 @@ function DesktopGroup({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="flex items-center gap-1 text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+        className="flex items-center gap-1 text-sm font-medium text-slate-300 transition-colors duration-150 hover:text-white"
       >
         {item.label}
         <CaretDown
@@ -222,7 +230,7 @@ function DesktopGroup({
       {open && (
         <div
           role="menu"
-          className="animate-in fade-in slide-in-from-top-1 duration-200 absolute top-full left-1/2 z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-black/5 bg-white/90 p-2 shadow-xl shadow-black/8 backdrop-blur-xl"
+          className="animate-in fade-in slide-in-from-top-1 duration-200 absolute top-full left-1/2 z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-white/10 bg-slate-900/95 p-2 shadow-xl shadow-black/40 backdrop-blur-xl"
         >
           {item.items.map((sub) => (
             <NavRow
@@ -255,7 +263,7 @@ function MobileGroup({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-slate-100 active:bg-slate-200"
+        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-200 transition-colors duration-150 hover:bg-white/10 active:bg-white/15"
       >
         {item.label}
         <CaretDown
@@ -266,7 +274,7 @@ function MobileGroup({
         />
       </button>
       {open && (
-        <div className="ml-3 border-l border-slate-100 pl-2">
+        <div className="ml-3 border-l border-white/10 pl-2">
           {item.items.map((sub) => (
             <NavRow
               key={sub.href}
@@ -298,7 +306,7 @@ function NavRow({
   children: React.ReactNode;
 }) {
   const className =
-    "block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-slate-100 active:bg-slate-200";
+    "block rounded-xl px-4 py-3 text-sm font-medium text-slate-200 transition-colors duration-150 hover:bg-white/10 active:bg-white/15";
   if (external) {
     return (
       <a
