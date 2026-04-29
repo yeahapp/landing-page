@@ -1,0 +1,479 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans:
+    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 640px) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility debug {
+  @apply border border-red-500;
+}
+
+@utility horizontal {
+  @apply flex flex-row;
+}
+
+@utility h {
+  @apply flex flex-row;
+}
+
+@utility v {
+  @apply flex flex-col;
+}
+
+@utility vertical {
+  @apply flex flex-col;
+}
+
+/* Clean Data Aesthetic Design System */
+:root {
+  --radius: 0.75rem; /* More subtle radius for clean look */
+  --header-height: 60px;
+  --container-max-width: 1200px;
+
+  /* Clean Color Palette - Inspired by Notion, Linear, Stripe */
+  --background: oklch(0.99 0.002 240); /* Pure, calm white */
+  --foreground: oklch(0.15 0.005 240); /* Sophisticated dark */
+  --card: oklch(1 0 0); /* Clean white surfaces */
+  --card-foreground: oklch(0.15 0.005 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.005 240);
+
+  /* Primary: Trustworthy slate-blue */
+  --primary: oklch(0.45 0.08 240);
+  --primary-foreground: oklch(0.98 0.002 240);
+
+  /* Secondary: Sophisticated neutral */
+  --secondary: oklch(0.97 0.002 240);
+  --secondary-foreground: oklch(0.35 0.005 240);
+
+  /* Muted: Gentle backgrounds with breathing room */
+  --muted: oklch(0.98 0.002 240);
+  --muted-foreground: oklch(0.55 0.005 240);
+
+  /* Accent: Gentle blue for gentle attention */
+  --accent: oklch(0.92 0.01 240);
+  --accent-foreground: oklch(0.25 0.01 240);
+
+  --destructive: oklch(0.55 0.15 20);
+  --destructive-foreground: oklch(0.98 0.002 240);
+
+  /* Clean borders and inputs */
+  --border: oklch(0.92 0.002 240);
+  --input: oklch(0.97 0.002 240);
+  --ring: oklch(0.45 0.08 240);
+
+  /* Data visualization with subtle distinction */
+  --chart-1: oklch(0.45 0.08 240); /* Primary blue */
+  --chart-2: oklch(0.55 0.12 160); /* Success green */
+  --chart-3: oklch(0.65 0.15 45); /* Warning amber */
+  --chart-4: oklch(0.55 0.1 300); /* Purple */
+  --chart-5: oklch(0.55 0.1 200); /* Cyan */
+
+  /* Sidebar - Clean workspace */
+  --sidebar: oklch(0.99 0.002 240);
+  --sidebar-foreground: oklch(0.15 0.005 240);
+  --sidebar-primary: oklch(0.45 0.08 240);
+  --sidebar-primary-foreground: oklch(0.98 0.002 240);
+  --sidebar-accent: oklch(0.97 0.002 240);
+  --sidebar-accent-foreground: oklch(0.35 0.005 240);
+  --sidebar-border: oklch(0.92 0.002 240);
+  --sidebar-ring: oklch(0.45 0.08 240);
+
+  /* Soft elevation shadows - never harsh */
+  --shadow-soft:
+    0 1px 3px 0 oklch(0.15 0.005 240 / 0.06),
+    0 1px 2px -1px oklch(0.15 0.005 240 / 0.06);
+  --shadow-medium:
+    0 4px 6px -1px oklch(0.15 0.005 240 / 0.08),
+    0 2px 4px -2px oklch(0.15 0.005 240 / 0.08);
+  --shadow-strong:
+    0 10px 15px -3px oklch(0.15 0.005 240 / 0.1),
+    0 4px 6px -4px oklch(0.15 0.005 240 / 0.1);
+  --shadow-accent: 0 4px 6px -1px oklch(0.45 0.08 240 / 0.15);
+}
+
+
+/* Custom utilities for YeahApp design system */
+@utility yeah-card {
+  @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+}
+
+@utility yeah-button {
+  @apply rounded-xl font-medium shadow-[var(--shadow-soft)] transition-[box-shadow,transform] duration-300 hover:shadow-[var(--shadow-medium)] active:scale-[0.99];
+}
+
+@utility yeah-input {
+  @apply rounded-lg border border-slate-200 bg-white transition-[border-color,box-shadow] duration-200 focus:border-slate-400 focus:shadow-[var(--shadow-soft)];
+}
+
+@utility yeah-badge {
+  @apply rounded-lg px-3 py-1.5 text-xs font-medium transition-colors duration-200;
+}
+
+@utility yeah-shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility yeah-shadow-medium {
+  box-shadow: var(--shadow-medium);
+}
+
+@utility yeah-shadow-strong {
+  box-shadow: var(--shadow-strong);
+}
+
+@utility yeah-shadow-accent {
+  box-shadow: var(--shadow-accent);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border hover:bg-primary/20 rounded-full;
+  }
+
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Touch scroll improvements for Safari */
+  .overscroll-contain {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Safe-area top padding — respects iPhone notch, falls back to 0.5rem */
+  .pt-safe {
+    padding-top: max(env(safe-area-inset-top), 0.5rem);
+  }
+
+  /* Safe-area bottom padding — clears home indicator AND Safari address bar */
+  .pb-safe {
+    padding-bottom: max(calc(env(safe-area-inset-bottom) + 3.5rem), 5rem);
+  }
+
+  /* Touch action for better tap responsiveness */
+  button,
+  [role="tab"],
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.vertical {
+  @apply flex flex-col;
+}
+
+.horizontal {
+  @apply flex flex-row;
+}
+
+.vertical.center {
+  @apply items-center justify-center;
+}
+
+.horizontal.center {
+  @apply items-center justify-center;
+}
+
+.horizontal.center-v {
+  @apply items-center;
+}
+
+.vertical.center-h {
+  @apply justify-center;
+}
+
+/* Enhanced animations */
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: var(--shadow-soft);
+  }
+  50% {
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+::view-transition-old(page) {
+  animation: slide-out 0.3s ease-in-out;
+}
+
+::view-transition-new(page) {
+  animation: slide-in 0.3s ease-in-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* YeahApp Brand Colors */
+@utility yeah-primary {
+  @apply bg-[#6f8eff] text-white hover:bg-[#5a79e8];
+}
+
+@utility yeah-secondary {
+  @apply bg-[#fb8034] text-white hover:bg-[#e86f25];
+}
+
+@utility yeah-primary-text {
+  @apply text-[#6f8eff];
+}
+
+@utility yeah-secondary-text {
+  @apply text-[#fb8034];
+}
+
+@utility yeah-primary-border {
+  @apply border-[#6f8eff];
+}
+
+@utility yeah-secondary-border {
+  @apply border-[#fb8034];
+}
+
+/* Reduced Motion Support - WCAG 2.1 Success Criterion 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable specific animations */
+  .animate-pulse,
+  .animate-pulse-subtle,
+  .animate-bounce,
+  .animate-spin,
+  .animate-ping,
+  .animate-float,
+  .animate-glow {
+    animation: none !important;
+  }
+
+  /* Keep essential visual feedback but without animation */
+  ::view-transition-old(page),
+  ::view-transition-new(page) {
+    animation: none !important;
+  }
+}
+
+/* Typography utilities */
+@utility tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
