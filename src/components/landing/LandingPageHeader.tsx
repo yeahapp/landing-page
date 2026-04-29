@@ -72,53 +72,50 @@ export default function LandingPageHeader() {
             )}
           </div>
 
-          {/* Center */}
+          {/* Center (mobile only — logo) */}
           <div
             className={cn(
               "flex flex-1 items-center",
-              isMobile ? "justify-center" : "justify-start pl-7",
+              isMobile ? "justify-center" : "hidden",
             )}
           >
-            {isMobile ? (
+            {isMobile && (
               <Logo href="/" variant="wordmark" imageClassName="h-7 w-auto" />
-            ) : (
-              <nav className="flex items-center">
-                {NAV.filter((item) => item.kind === "group").map((item) =>
-                  item.kind === "group" ? (
-                    <DesktopGroup key={item.label} item={item} />
-                  ) : null,
-                )}
-              </nav>
             )}
           </div>
 
           {/* Right */}
           <div className="flex flex-1 items-center justify-end">
-            {!isMobile &&
-              NAV.filter((item) => item.kind === "link").map((item) =>
-                item.kind === "link" ? (
-                  item.external ? (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      {...(item.newTab
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
-                      className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
-                    >
-                      {item.label}
-                    </a>
+            {!isMobile && (
+              <nav className="flex items-center gap-7">
+                {NAV.map((item) =>
+                  item.kind === "link" ? (
+                    item.external ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        {...(item.newTab
+                          ? { target: "_blank", rel: "noreferrer" }
+                          : {})}
+                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                      >
+                        {item.label}
+                      </Link>
+                    )
                   ) : (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                ) : null,
-              )}
+                    <DesktopGroup key={item.label} item={item} />
+                  ),
+                )}
+              </nav>
+            )}
             {isMobile ? (
               <Button
                 variant="ghost"
