@@ -4,7 +4,7 @@ import { Logo } from "@/components/core/Logo";
 import { useKitzeUI } from "@/components/KitzeUIContext";
 import { Button } from "@/components/main/buttons";
 import Link from "next/link";
-import { SignIn, X, CaretDown } from "@phosphor-icons/react";
+import { X, CaretDown } from "@phosphor-icons/react";
 import { useScrolledPast } from "@/hooks/useScrolledPast";
 import { cn } from "@/lib/utils";
 
@@ -42,13 +42,7 @@ const NAV: NavItem[] = [
   { kind: "group", label: "Platform", items: PLATFORM_ITEMS },
   {
     kind: "link",
-    label: "Communities",
-    href: `${APP_URL}/discover/communities`,
-    external: true,
-  },
-  {
-    kind: "link",
-    label: "Events",
+    label: "App",
     href: `${APP_URL}/discover/events`,
     external: true,
   },
@@ -73,48 +67,26 @@ export default function LandingPageHeader() {
         >
           {/* Left */}
           <div className="flex flex-1 items-center">
-            {isMobile ? (
-              <a href={`${APP_URL}/signin`} aria-label="Sign in">
-                <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
-                  <SignIn className="h-5 w-5 text-slate-600" />
-                </Button>
-              </a>
-            ) : (
+            {isMobile ? null : (
               <Logo href="/" variant="wordmark" imageClassName="h-7 w-auto" />
             )}
           </div>
 
           {/* Center */}
-          <div className="flex flex-1 items-center justify-center">
+          <div
+            className={cn(
+              "flex flex-1 items-center",
+              isMobile ? "justify-center" : "justify-start pl-7",
+            )}
+          >
             {isMobile ? (
               <Logo href="/" variant="wordmark" imageClassName="h-7 w-auto" />
             ) : (
-              <nav className="flex items-center gap-7">
-                {NAV.map((item) =>
-                  item.kind === "link" ? (
-                    item.external ? (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        {...(item.newTab
-                          ? { target: "_blank", rel: "noreferrer" }
-                          : {})}
-                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
-                      >
-                        {item.label}
-                      </Link>
-                    )
-                  ) : (
+              <nav className="flex items-center">
+                {NAV.filter((item) => item.kind === "group").map((item) =>
+                  item.kind === "group" ? (
                     <DesktopGroup key={item.label} item={item} />
-                  ),
+                  ) : null,
                 )}
               </nav>
             )}
@@ -122,6 +94,31 @@ export default function LandingPageHeader() {
 
           {/* Right */}
           <div className="flex flex-1 items-center justify-end">
+            {!isMobile &&
+              NAV.filter((item) => item.kind === "link").map((item) =>
+                item.kind === "link" ? (
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      {...(item.newTab
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
+                      className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-sm font-medium text-slate-600 transition-colors duration-150 hover:text-slate-900"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                ) : null,
+              )}
             {isMobile ? (
               <Button
                 variant="ghost"
@@ -149,21 +146,7 @@ export default function LandingPageHeader() {
                   </svg>
                 )}
               </Button>
-            ) : (
-              <div className="flex items-center gap-2">
-                <a href={`${APP_URL}/signin`}>
-                  <Button
-                    variant="ghost"
-                    leftIcon={<SignIn className="h-4 w-4" />}
-                  >
-                    Login
-                  </Button>
-                </a>
-                <a href={`${APP_URL}/signup`}>
-                  <Button>Start for free</Button>
-                </a>
-              </div>
-            )}
+            ) : null}
           </div>
         </div>
 
@@ -190,22 +173,6 @@ export default function LandingPageHeader() {
               ),
             )}
 
-            <div className="mt-2 border-t border-slate-100 pt-2">
-              <NavRow
-                href={`${APP_URL}/signin`}
-                external
-                onNavigate={() => setMobileMenuOpen(false)}
-              >
-                Sign in
-              </NavRow>
-              <a
-                href={`${APP_URL}/signup`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-1 block rounded-xl bg-[#6f8eff] px-4 py-3 text-center text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#5a79e8]"
-              >
-                Start free
-              </a>
-            </div>
           </div>
         )}
       </div>
