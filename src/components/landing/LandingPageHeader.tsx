@@ -95,7 +95,7 @@ export default function LandingPageHeader() {
           {/* Right */}
           <div className="flex flex-1 items-center justify-end">
             {!isMobile && (
-              <nav className="flex items-center gap-7">
+              <nav className="flex items-center gap-5 pr-2">
                 {NAV.map((item) =>
                   item.kind === "link" ? (
                     item.external ? (
