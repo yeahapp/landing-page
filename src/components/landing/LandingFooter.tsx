@@ -30,7 +30,6 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "The Team", href: "/the-team" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
@@ -69,7 +68,7 @@ export default function LandingFooter() {
       <div className="container mx-auto px-4 pt-16">
         <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2">
-            <Logo />
+            <Logo imageClassName="h-12 w-12 rounded-lg" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-600">
               The community operating system for civil society organisations.
               One workspace for events, members, and operations — designed

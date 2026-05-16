@@ -22,8 +22,8 @@ export default function FinalCTASection() {
               Bring your community onto a single platform.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg text-slate-300">
-              Set up takes an afternoon. Migration is supported. Your team
-              recovers the hours that used to disappear into spreadsheets and
+              Setup takes an afternoon, and migration is supported. Your team
+              recovers the hours previously lost to spreadsheets and
               tab-switching.
             </p>
 

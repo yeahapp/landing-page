@@ -28,7 +28,6 @@ type NavLink = {
 };
 
 const ABOUT_ITEMS: NavLink[] = [
-  { label: "The Team", href: "/the-team" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   {
@@ -66,31 +65,13 @@ export default function LandingPageHeader() {
               : "border-white/10 bg-slate-900/80 shadow-lg shadow-black/30 backdrop-blur-lg",
           )}
         >
-          {/* Left */}
+          {/* Left — logo */}
           <div className="flex flex-1 items-center">
-            {isMobile ? null : (
-              <Logo
-                href="/"
-                variant="wordmark"
-                imageClassName="h-7 w-auto invert"
-              />
-            )}
-          </div>
-
-          {/* Center (mobile only — logo) */}
-          <div
-            className={cn(
-              "flex flex-1 items-center",
-              isMobile ? "justify-center" : "hidden",
-            )}
-          >
-            {isMobile && (
-              <Logo
-                href="/"
-                variant="wordmark"
-                imageClassName="h-7 w-auto invert"
-              />
-            )}
+            <Logo
+              href="/"
+              variant="wordmark"
+              imageClassName="h-7 w-auto invert"
+            />
           </div>
 
           {/* Right */}

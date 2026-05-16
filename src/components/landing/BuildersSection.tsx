@@ -11,19 +11,19 @@ const principles = [
     icon: HandHeart,
     title: "Lived experience",
     description:
-      "Our team has spent years inside NGOs, volunteer collectives, and faith-based organisations — not as consultants, but as the people running registrations, chasing dues, and rebuilding the spreadsheet at 11pm.",
+      "Our team has spent years inside NGOs, volunteer collectives, and faith-based organisations — running registrations, managing dues, and maintaining the records that hold a community together.",
   },
   {
     icon: GlobeHemisphereWest,
     title: "Activism alongside profession",
     description:
-      "We work in software, design, and operations by day, and contribute to civic, cultural, and humanitarian causes on the side. The product reflects the friction we hit in both worlds.",
+      "We work in software, design, and operations, and contribute to civic, cultural, and humanitarian causes. The product reflects the friction encountered in both.",
   },
   {
     icon: Compass,
     title: "Built with operators, not for them",
     description:
-      "Every workflow — events, dues, roles, payouts — comes from real conversations with community managers and treasurers. We ship what reduces their week, not what photographs well.",
+      "Every workflow — events, dues, roles, payouts — is informed by direct conversations with community managers and treasurers. We build what reduces their workload.",
   },
 ];
 
@@ -44,10 +44,10 @@ export default function BuildersSection() {
                   <span className="text-slate-500">For community builders.</span>
                 </h2>
                 <p className="mt-5 text-pretty text-base leading-relaxed text-slate-600">
-                  YeahApp is built by a team with extensive experience inside
+                  YeahApp is built by a team with direct experience inside
                   non-profit, volunteering, and activist organisations —
                   running chapters, organising events, and managing membership
-                  rolls alongside our day jobs in technology and design.
+                  alongside careers in technology and design.
                 </p>
               </div>
 
@@ -92,8 +92,7 @@ export default function BuildersSection() {
                 </div>
                 <h3 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                   We are building an ecosystem of management and business
-                  software, tailored end to end for CSOs, NGOs, and
-                  communities.
+                  software for CSOs, NGOs, and communities.
                 </h3>
                 <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-300">
                   YeahApp is the first product in a longer roadmap aimed at

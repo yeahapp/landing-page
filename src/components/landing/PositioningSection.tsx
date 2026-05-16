@@ -58,6 +58,8 @@ type Tab = {
   accent: AccentKey;
   deviceVariant: DeviceVariant;
   deviceLabel: string;
+  deviceImage: string;
+  deviceImageMobile?: string;
   features: ReadonlyArray<FeatureItem>;
 };
 
@@ -70,8 +72,10 @@ const TABS: ReadonlyArray<Tab> = [
     description:
       "Most platforms treat events as a sales channel. We treat them as the primary mechanism for collecting member data — every registration, payment, and check-in feeds the directory automatically.",
     accent: "primary",
-    deviceVariant: "desktop",
+    deviceVariant: "dual",
     deviceLabel: "Event management",
+    deviceImage: "/screenshots/desktop/07-mgmt-events.png",
+    deviceImageMobile: "/screenshots/mobile/07-mgmt-events.png",
     features: [
       {
         icon: CalendarCheck,
@@ -109,6 +113,8 @@ const TABS: ReadonlyArray<Tab> = [
     accent: "orange",
     deviceVariant: "dual",
     deviceLabel: "Member directory",
+    deviceImage: "/screenshots/desktop/08-mgmt-members.png",
+    deviceImageMobile: "/screenshots/mobile/08-mgmt-members.png",
     features: [
       {
         icon: UsersThree,
@@ -144,8 +150,10 @@ const TABS: ReadonlyArray<Tab> = [
     description:
       "Because everything sits in one schema — events, dues, attendance, submissions — analytics are an emergent property, not a separate product. Build the report once; reuse the data everywhere.",
     accent: "dark",
-    deviceVariant: "desktop",
+    deviceVariant: "dual",
     deviceLabel: "Reporting dashboard",
+    deviceImage: "/screenshots/desktop/06-mgmt-insights.png",
+    deviceImageMobile: "/screenshots/mobile/05-mgmt-finance.png",
     features: [
       {
         icon: ChartPieSlice,
@@ -184,48 +192,27 @@ export default function PositioningSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="inline-block rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-medium tracking-wide text-slate-600 uppercase">
-            Positioning
+            Platform overview
           </span>
           <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
             Where social media meets
             <br />
-            <span className="text-[#6f8eff]">ERP management systems.</span>
+            <span className="text-[#6f8eff]">enterprise resource planning.</span>
           </h2>
           <p className="mt-4 text-pretty text-lg text-slate-600">
             At a fraction of the cost.
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-slate-600">
-            YeahApp is engineered around the operational reality of civil
-            society organisations — NGOs, volunteer collectives, and grassroots
-            networks. Where Eventbrite or Luma optimise a single transaction,
-            we follow the SAP playbook and optimise the entire business
-            process: members, events, payments, communications, and reporting,
-            modelled as one connected system.
+            YeahApp is built for the operational reality of civil society
+            organisations. Where Eventbrite or Luma optimise a single
+            transaction, YeahApp models the entire process — members, events,
+            payments, communications, and reporting — as one connected system.
           </p>
-        </Reveal>
-
-        <Reveal delay={120} className="mt-12">
-          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white p-6 sm:p-10">
-            <div className="grid gap-4 md:grid-cols-3">
-              <PrincipleTile
-                eyebrow="Hybrid by design"
-                body="A community feed for the online half. QR check-in, ticketing, and chapter rolls for the offline half. One profile across both."
-              />
-              <PrincipleTile
-                eyebrow="Process-first, not point-tool"
-                body="We model the whole workflow — registration to attendance to renewal to reporting — instead of solving one slice at a time."
-              />
-              <PrincipleTile
-                eyebrow="Built for CSOs"
-                body="Volunteer hierarchies, chapter federations, and membership economics are first-class concepts — not afterthoughts retrofitted from a B2B SaaS template."
-              />
-            </div>
-          </div>
         </Reveal>
 
         {/* Tabbed area: sticky pill nav + content card. The wrapper is the sticky boundary
             — when its bottom scrolls past the offset, the nav unsticks and leaves with the section. */}
-        <div className="relative mt-6">
+        <div className="relative mt-12">
           <div className="sticky top-[calc(max(env(safe-area-inset-top,_0px),_0.75rem)_+_4.5rem)] z-30 flex justify-center">
             <div
               role="tablist"
@@ -270,17 +257,6 @@ export default function PositioningSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function PrincipleTile({ eyebrow, body }: { eyebrow: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-      <div className="text-[11px] font-semibold tracking-widest text-slate-500 uppercase">
-        {eyebrow}
-      </div>
-      <p className="mt-3 text-sm leading-relaxed text-slate-700">{body}</p>
-    </div>
   );
 }
 
@@ -362,6 +338,8 @@ function TabContent({ tab }: { tab: Tab }) {
             variant={tab.deviceVariant}
             tone={isDark ? "dark" : "light"}
             label={tab.deviceLabel}
+            src={tab.deviceImage}
+            srcMobile={tab.deviceImageMobile}
             className="w-full"
           />
         </div>

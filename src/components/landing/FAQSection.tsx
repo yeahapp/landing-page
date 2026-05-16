@@ -36,6 +36,21 @@ const faqItems = [
     answer:
       "Yes. Every new community receives onboarding assistance, including a setup walkthrough and direct access to the team during the first thirty days. Higher plans include dedicated onboarding managers.",
   },
+  {
+    question: "Why not use an ERP system like SAP or Odoo?",
+    answer:
+      "Platforms like SAP and Odoo are built around business and finance processes, and they demand significant configuration and technical resource to deploy. YeahApp models the workflows civil society organisations actually run — membership, events, volunteer roles, chapters, and dues — out of the box, with the same process discipline and none of the implementation overhead.",
+  },
+  {
+    question: "Why one platform instead of separate best-of-breed tools?",
+    answer:
+      "Most community teams run an event tool, a CRM, a forms product, a billing system, and a chat platform in parallel. None of them connect, and a spreadsheet becomes the de facto source of truth. YeahApp consolidates the stack into a single record.",
+  },
+  {
+    question: "Is YeahApp only an events application?",
+    answer:
+      "No. YeahApp is the first product in a planned ecosystem of management software for civil society organisations. Finance, governance, and reporting modules are on the roadmap, designed to interoperate rather than be sold as upsells.",
+  },
 ];
 
 function FAQItem({

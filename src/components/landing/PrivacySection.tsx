@@ -39,8 +39,8 @@ export default function PrivacySection() {
             We treat member data the way our Swiss investors treat capital —
             with discretion, jurisdiction-aware controls, and the assumption
             that ownership ultimately belongs to the depositor. Each plan
-            extends the level of control you have over where the data lives
-            and who can touch it.
+            extends your control over where the data lives and who can access
+            it.
           </p>
         </Reveal>
 
@@ -65,8 +65,8 @@ export default function PrivacySection() {
           })}
         </div>
 
-        <Reveal delay={300} className="mt-12">
-          <div className="mx-auto flex max-w-3xl items-start gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-7">
+        <Reveal delay={300} className="mt-5">
+          <div className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-7">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10">
               <Globe className="h-5 w-5 text-white" weight="duotone" />
             </div>
