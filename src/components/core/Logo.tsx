@@ -1,9 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import React from "react";
 import { APP_NAME } from "@/config/config";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 type LogoVariant = "icon" | "wordmark";
@@ -38,12 +34,7 @@ export function Logo({
   const config = VARIANTS[variant];
   return (
     <Link href={href} className="inline-block shrink-0">
-      <motion.div
-        className="flex items-center justify-center"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="flex items-center justify-center">
         <Image
           src={config.src}
           alt={`${APP_NAME} Logo`}
@@ -52,7 +43,7 @@ export function Logo({
           className={imageClassName ?? config.defaultClass}
           priority
         />
-      </motion.div>
+      </div>
     </Link>
   );
 }
