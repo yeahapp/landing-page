@@ -49,7 +49,7 @@ export default function PrivacySection() {
             const Icon = tier.icon;
             return (
               <Reveal key={tier.label} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm transition-colors hover:bg-white/[0.05]">
+                <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] px-4 py-7 backdrop-blur-sm transition-colors hover:bg-white/[0.05] sm:p-7">
                   <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10">
                     <Icon className="h-5 w-5 text-white" weight="duotone" />
                   </div>
@@ -66,16 +66,18 @@ export default function PrivacySection() {
         </div>
 
         <Reveal delay={300} className="mt-5">
-          <div className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-7">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10">
+          <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] px-4 py-7 backdrop-blur-sm sm:p-7">
+            <div className="mb-6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10">
               <Globe className="h-5 w-5 text-white" weight="duotone" />
             </div>
-            <p className="text-sm leading-relaxed text-slate-300">
-              <span className="font-semibold text-white">EU-built, EU-hosted.</span>{" "}
-              YeahApp is designed and engineered in the EU, with
-              data residency that respects the regulatory environment your
-              members operate in. Your community&apos;s information does not
-              cross jurisdictions you have not approved.
+            <div className="text-[11px] font-semibold tracking-widest text-slate-400 uppercase">
+              EU-built, EU-hosted
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+              YeahApp is designed and engineered in the EU, with data residency
+              that respects the regulatory environment your members operate in.
+              Your community&apos;s information does not cross jurisdictions you
+              have not approved.
             </p>
           </div>
         </Reveal>

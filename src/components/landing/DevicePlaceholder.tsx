@@ -12,7 +12,22 @@ type DevicePlaceholderProps = {
   src?: string;
   /** Phone screenshot. Falls back to `src` for the dual variant inset. */
   srcMobile?: string;
+  /** Which side of the desktop frame the dual-variant phone overlaps. */
+  phoneSide?: "left" | "right";
+  /** Desktop anchor for the dual-variant phone overlap. */
+  phoneAnchor?: "top" | "bottom";
 };
+
+const phonePosition = {
+  "right-bottom":
+    "-bottom-8 right-4 w-32 sm:-right-4 sm:bottom-6 sm:w-44 lg:-right-10 lg:w-40",
+  "right-top":
+    "-bottom-8 right-4 w-32 sm:-right-4 sm:bottom-6 sm:w-44 lg:top-6 lg:bottom-auto lg:-right-10 lg:w-44",
+  "left-bottom":
+    "-bottom-8 left-4 w-32 sm:-left-4 sm:bottom-6 sm:w-44 lg:-left-10 lg:w-40",
+  "left-top":
+    "-bottom-8 left-4 w-32 sm:-left-4 sm:bottom-6 sm:w-44 lg:top-6 lg:bottom-auto lg:-left-10 lg:w-44",
+} as const;
 
 export function DevicePlaceholder({
   variant = "desktop",
@@ -21,12 +36,19 @@ export function DevicePlaceholder({
   tone = "light",
   src,
   srcMobile,
+  phoneSide = "right",
+  phoneAnchor = "bottom",
 }: DevicePlaceholderProps) {
   if (variant === "dual") {
     return (
       <div className={cn("relative", className)}>
         <DesktopFrame label={label} tone={tone} src={src} />
-        <div className="absolute -bottom-8 right-4 w-32 sm:-right-4 sm:bottom-6 sm:w-44 lg:-right-10 lg:w-52">
+        <div
+          className={cn(
+            "absolute",
+            phonePosition[`${phoneSide}-${phoneAnchor}`],
+          )}
+        >
           <MobileFrame label={label} compact src={srcMobile ?? src} />
         </div>
       </div>

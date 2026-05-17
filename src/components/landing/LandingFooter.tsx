@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  TwitterLogo,
   LinkedinLogo,
   InstagramLogo,
 } from "@phosphor-icons/react/dist/ssr";
@@ -29,27 +28,17 @@ const footerLinks = [
   },
   {
     title: "Company",
-    links: [
-      { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
-    ],
+    links: [{ label: "Contact", href: "/contact" }],
   },
   {
     title: "Resources",
     links: [
-      { label: "Help Center", href: "/help" },
       { label: "Blog", href: "https://blog.yeahapp.co", external: true },
-      { label: "Status", href: "/status" },
     ],
   },
 ];
 
 const socialLinks = [
-  {
-    icon: <TwitterLogo className="h-5 w-5" weight="fill" />,
-    href: "https://twitter.com/yeahapp",
-    label: "Twitter",
-  },
   {
     icon: <LinkedinLogo className="h-5 w-5" weight="fill" />,
     href: "https://linkedin.com/company/yeahapp",

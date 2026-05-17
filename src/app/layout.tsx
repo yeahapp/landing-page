@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { APP_NAME, APP_DESCRIPTION } from "@/config/config";
 import LandingPageHeader from "@/components/landing/LandingPageHeader";
 import LandingFooter from "@/components/landing/LandingFooter";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
           <LandingFooter />
         </div>
         <Toaster />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -65,41 +65,47 @@ function FAQItem({
   toggleOpen: () => void;
 }) {
   return (
-    <button
-      onClick={toggleOpen}
+    <div
       className={cn(
-        "w-full rounded-2xl border bg-white p-4 text-left transition-all duration-200 sm:p-6",
+        "rounded-2xl border bg-white transition-all duration-200",
         isOpen
           ? "border-slate-300 shadow-md"
           : "border-slate-200 hover:border-slate-300",
       )}
     >
-      <div className="flex items-center justify-between gap-3 sm:gap-4">
-        <h3 className="text-sm font-semibold text-slate-900 sm:text-base">
-          {question}
-        </h3>
-        <span
-          className={cn(
-            "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-transform duration-200 sm:h-8 sm:w-8",
-            isOpen && "rotate-180",
-          )}
+      <h3>
+        <button
+          type="button"
+          onClick={toggleOpen}
+          aria-expanded={isOpen}
+          className="flex w-full items-center justify-between gap-3 p-4 text-left sm:gap-4 sm:p-6"
         >
-          <CaretDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-        </span>
-      </div>
+          <span className="text-sm font-semibold text-slate-900 sm:text-base">
+            {question}
+          </span>
+          <span
+            className={cn(
+              "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-transform duration-200 sm:h-8 sm:w-8",
+              isOpen && "rotate-180",
+            )}
+          >
+            <CaretDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+          </span>
+        </button>
+      </h3>
       <div
         className={cn(
-          "overflow-hidden transition-[max-height,opacity,margin] duration-300 ease-out",
-          isOpen
-            ? "mt-3 max-h-[600px] opacity-100 sm:mt-4"
-            : "max-h-0 opacity-0",
+          "grid transition-[grid-template-rows] duration-300 ease-out",
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
-        <p className="pr-6 text-sm leading-relaxed text-slate-600 sm:pr-8">
-          {answer}
-        </p>
+        <div className="overflow-hidden">
+          <p className="px-4 pr-6 pb-4 text-sm leading-relaxed text-slate-600 sm:px-6 sm:pr-8 sm:pb-6">
+            {answer}
+          </p>
+        </div>
       </div>
-    </button>
+    </div>
   );
 }
 
@@ -110,7 +116,7 @@ export default function FAQSection() {
     <section className="bg-slate-50 py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white p-6 sm:p-12 lg:p-16">
+          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white px-4 py-6 sm:p-12 lg:p-16">
             <div className="mx-auto max-w-2xl text-center">
               <span className="inline-block rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium tracking-wide text-slate-600 uppercase">
                 FAQ

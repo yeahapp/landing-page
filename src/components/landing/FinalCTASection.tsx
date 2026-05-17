@@ -17,7 +17,7 @@ export default function FinalCTASection() {
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-slate-900 p-10 text-center text-white sm:p-16">
+          <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-slate-900 px-4 py-10 text-center text-white sm:p-16">
             <h2 className="mx-auto max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
               Bring your community onto a single platform.
             </h2>
@@ -33,7 +33,7 @@ export default function FinalCTASection() {
                   size="lg"
                   className="h-14 bg-white px-8 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-100"
                 >
-                  Start free
+                  Start now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>

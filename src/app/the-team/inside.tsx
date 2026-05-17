@@ -81,7 +81,7 @@ export default function TheTeamPageContent() {
         ))}
       </div>
 
-      <div className="animate-in fade-in slide-in-from-bottom-3 duration-700 [animation-delay:150ms] mb-16 rounded-2xl border border-slate-200 bg-slate-50 p-8">
+      <div className="animate-in fade-in slide-in-from-bottom-3 duration-700 [animation-delay:150ms] mb-16 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-8 sm:p-8">
         <h2 className="font-heading mb-3 text-3xl font-semibold tracking-tight text-slate-900">
           Our mission
         </h2>
@@ -107,7 +107,7 @@ export default function TheTeamPageContent() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="animate-in fade-in slide-in-from-bottom-2 duration-700 rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
+              className="animate-in fade-in slide-in-from-bottom-2 duration-700 rounded-xl border border-slate-200 bg-white px-4 py-6 transition-shadow hover:shadow-md sm:p-6"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex items-start gap-4">
@@ -126,7 +126,7 @@ export default function TheTeamPageContent() {
         </div>
       </div>
 
-      <div className="animate-in fade-in duration-700 [animation-delay:200ms] rounded-2xl border border-slate-200 bg-slate-900 p-8 text-center">
+      <div className="animate-in fade-in duration-700 [animation-delay:200ms] rounded-2xl border border-slate-200 bg-slate-900 px-4 py-8 text-center sm:p-8">
         <h2 className="font-heading mb-3 text-3xl font-semibold tracking-tight text-white">
           Ready to get started?
         </h2>
@@ -138,7 +138,7 @@ export default function TheTeamPageContent() {
           href={`${APP_URL}/signup`}
           className="inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 font-semibold text-slate-900 transition-colors hover:bg-slate-100"
         >
-          Start free
+          Start now
           <ArrowRight className="h-4 w-4" />
         </a>
       </div>

@@ -22,9 +22,12 @@ There are no tests in this project — it's pure static UI. `npm run typecheck` 
 
 ## Environment
 
-The site reads exactly one env var: `NEXT_PUBLIC_APP_URL`. Set in `.env.local` for dev (e.g. `http://localhost:3002`) and in Vercel project settings for production (`https://app.yeahapp.co`).
+The site reads two env vars, both `NEXT_PUBLIC_*`:
 
-Because it's `NEXT_PUBLIC_*`, the value is inlined into client bundles at build/dev-server-start time — restart `npm run dev` after editing `.env.local` if you don't see it pick up.
+- `NEXT_PUBLIC_APP_URL` — the app domain. Set in `.env.local` for dev (e.g. `http://localhost:3002`) and in Vercel project settings for production (`https://app.yeahapp.co`).
+- `NEXT_PUBLIC_GA_ID` — the Google Analytics Measurement ID (`G-XXXXXXXXXX`). Optional: when unset, no analytics and no cookie-consent banner render. GA loads only after the visitor accepts via the consent banner (`src/components/CookieConsent.tsx`).
+
+Because they're `NEXT_PUBLIC_*`, the values are inlined into client bundles at build/dev-server-start time — restart `npm run dev` after editing `.env.local` if you don't see them pick up.
 
 ## Architecture
 

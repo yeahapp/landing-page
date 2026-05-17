@@ -36,7 +36,7 @@ export default function HeroSection() {
               size="lg"
               className="h-14 bg-slate-900 px-8 text-base font-semibold text-white transition-colors hover:bg-slate-800"
             >
-              Start free
+              Start now
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>

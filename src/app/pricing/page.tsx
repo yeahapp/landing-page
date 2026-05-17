@@ -96,7 +96,7 @@ export default function PricingPage() {
       </div>
 
       {/* Testimonials */}
-      <div className="flex flex-col gap-12 rounded-2xl bg-gray-50 p-12">
+      <div className="flex flex-col gap-12 rounded-2xl bg-gray-50 px-4 py-12 sm:p-12">
         <div className="mx-auto flex max-w-2xl flex-col gap-4 text-center">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             Trusted by community leaders
@@ -159,13 +159,13 @@ export default function PricingPage() {
             Ready to get started?
           </h2>
           <p className="text-gray-600">
-            Start free with one community — upgrade when you grow.
+            Start now with one community — upgrade when you grow.
           </p>
         </div>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <a href={`${APP_URL}/signup`}>
             <Button color="violet-600" size="lg">
-              Start for free
+              Start now
             </Button>
           </a>
           <Link href="/contact">

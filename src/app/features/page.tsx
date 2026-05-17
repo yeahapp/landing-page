@@ -114,7 +114,7 @@ export default function FeaturesPage() {
             return (
               <Reveal key={feature.title}>
                 <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-slate-50">
-                  <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center lg:gap-14 lg:p-14">
+                  <div className="grid gap-10 px-4 pt-8 pb-16 sm:p-12 lg:grid-cols-2 lg:items-center lg:gap-14 lg:p-14">
                     <div className={cn("flex flex-col", flip && "lg:order-2")}>
                       <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#6f8eff]/10">
                         <Icon
@@ -144,6 +144,11 @@ export default function FeaturesPage() {
                         label={feature.eyebrow}
                         src={feature.image}
                         srcMobile={feature.imageMobile}
+                        phoneSide={
+                          feature.eyebrow === "Business intelligence"
+                            ? "left"
+                            : "right"
+                        }
                         className="w-full"
                       />
                     </div>
@@ -155,7 +160,7 @@ export default function FeaturesPage() {
         </div>
 
         <Reveal delay={120} className="mt-6">
-          <div className="overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900 p-10 text-center sm:p-14">
+          <div className="overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900 px-4 py-10 text-center sm:p-14">
             <h2 className="text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               See it with your own community.
             </h2>
@@ -169,7 +174,7 @@ export default function FeaturesPage() {
                   size="lg"
                   className="h-13 bg-white px-8 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-100"
                 >
-                  Start free
+                  Start now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>

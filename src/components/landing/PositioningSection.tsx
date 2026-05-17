@@ -277,7 +277,7 @@ function TabContent({ tab }: { tab: Tab }) {
         surface,
       )}
     >
-      <div className="grid flex-1 gap-10 p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:p-14">
+      <div className="grid flex-1 gap-10 px-4 pt-8 pb-16 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12 lg:p-14">
         <div className="flex flex-col">
           <span
             className={cn(
@@ -333,13 +333,20 @@ function TabContent({ tab }: { tab: Tab }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div
+          className={cn(
+            "flex items-center justify-center",
+            isDark && "lg:pl-12",
+          )}
+        >
           <DevicePlaceholder
             variant={tab.deviceVariant}
             tone={isDark ? "dark" : "light"}
             label={tab.deviceLabel}
             src={tab.deviceImage}
             srcMobile={tab.deviceImageMobile}
+            phoneSide={isDark ? "left" : "right"}
+            phoneAnchor="top"
             className="w-full"
           />
         </div>

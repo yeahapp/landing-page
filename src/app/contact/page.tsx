@@ -46,7 +46,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section className="py-20">
+      <section className="pb-20 pt-[calc(env(safe-area-inset-top,_0px)_+_8rem)]">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="animate-in fade-in slide-in-from-bottom-3 duration-700 text-center">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100">
@@ -63,7 +63,7 @@ export default function ContactPage() {
           </div>
 
           <div className="animate-in fade-in slide-in-from-bottom-3 duration-700 [animation-delay:120ms] mt-12">
-            <Card className="p-8">
+            <Card className="px-4 py-8 sm:p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>

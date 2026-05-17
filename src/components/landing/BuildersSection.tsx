@@ -33,7 +33,7 @@ export default function BuildersSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white">
-            <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:p-16">
+            <div className="grid gap-10 px-4 py-8 sm:p-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:p-16">
               <div className="flex flex-col">
                 <span className="inline-block w-fit rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium tracking-wide text-slate-600 uppercase">
                   Who we are
@@ -81,7 +81,7 @@ export default function BuildersSection() {
         </Reveal>
 
         <Reveal delay={200} className="mt-6">
-          <div className="overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900 p-8 sm:p-14">
+          <div className="overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900 px-4 py-8 sm:p-14">
             <div className="grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-12">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
                 <Stack className="h-7 w-7 text-white" weight="duotone" />

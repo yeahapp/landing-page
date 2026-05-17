@@ -1,0 +1,18 @@
+# YeahApp
+
+> YeahApp is the community operating system for civil society organisations — one connected workspace for events, members, payments, and reporting. It is designed and engineered in the EU and built by Elevatech Oy. This site (yeahapp.co) is the public marketing site; the product itself runs at app.yeahapp.co.
+
+## Pages
+
+- [Home](https://yeahapp.co/): Overview of YeahApp — where social media meets enterprise resource planning for community teams.
+- [Features](https://yeahapp.co/features): Events, membership, finance, business intelligence, forms, and governance in one workspace.
+- [Pricing](https://yeahapp.co/pricing): Fixed annual fee plus a small transaction fee — pay for results, not per seat.
+- [The Team](https://yeahapp.co/the-team): The community builders behind YeahApp and the principles guiding the product.
+- [Contact](https://yeahapp.co/contact): Reach the team about the platform, enterprise terms, or migration support.
+- [Privacy Policy](https://yeahapp.co/privacy): How Elevatech Oy collects, uses, and protects personal data.
+
+## Notes
+
+- The YeahApp application lives at https://app.yeahapp.co
+- Product blog: https://blog.yeahapp.co
+- YeahApp is a product of Elevatech Oy, Helsinki, Finland.
