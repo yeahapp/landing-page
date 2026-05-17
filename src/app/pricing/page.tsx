@@ -1,4 +1,5 @@
 import { type Metadata } from "next";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { APP_NAME } from "@/config/config";
 import PricingPlans from "@/components/pricing/PricingPlans";
 import { Button } from "@/components/main/buttons";
@@ -153,23 +154,31 @@ export default function PricingPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="flex flex-col gap-8 text-center">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Ready to get started?
-          </h2>
-          <p className="text-gray-600">
-            Start now with one community — upgrade when you grow.
-          </p>
-        </div>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
+      <div className="overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900 px-4 py-10 text-center sm:p-14">
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          Ready to get started?
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-slate-300">
+          Start now with one community — upgrade when you grow.
+        </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href={`${APP_URL}/signup`}>
-            <Button color="violet-600" size="lg">
+            <Button
+              size="lg"
+              className="h-13 bg-white px-8 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+            >
               Start now
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>
           <Link href="/contact">
-            <Button size="lg">Contact sales</Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="h-13 border-white/15 bg-transparent px-8 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Contact sales
+            </Button>
           </Link>
         </div>
       </div>

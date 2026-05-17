@@ -1,42 +1,31 @@
-import { CheckCircle, XCircle } from "@phosphor-icons/react";
+import { Check, X } from "@phosphor-icons/react/dist/ssr";
+import { cn } from "@/lib/utils";
 
 type FeaturesListProps = {
   features: string[];
   disabledFeatures?: string[];
-  extraFeatures?: string[];
+  className?: string;
 };
 
 export const FeaturesList = ({
   features,
   disabledFeatures,
-  extraFeatures,
+  className,
 }: FeaturesListProps) => (
-  <ul className="space-y-3">
+  <ul className={cn("space-y-2.5", className)}>
     {features.map((feature) => (
-      <li key={feature} className="flex items-start gap-3">
-        <CheckCircle
-          weight="fill"
-          className="h-5 w-5 flex-shrink-0 text-green-500"
+      <li key={feature} className="flex items-start gap-2.5">
+        <Check
+          weight="bold"
+          className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"
         />
-        <span className="text-sm">{feature}</span>
+        <span className="text-sm text-slate-600">{feature}</span>
       </li>
     ))}
     {disabledFeatures?.map((feature) => (
-      <li key={feature} className="flex items-start gap-3 opacity-50">
-        <XCircle
-          weight="fill"
-          className="h-5 w-5 flex-shrink-0 text-gray-400"
-        />
+      <li key={feature} className="flex items-start gap-2.5 text-slate-400">
+        <X weight="bold" className="mt-0.5 h-4 w-4 shrink-0" />
         <span className="text-sm line-through">{feature}</span>
-      </li>
-    ))}
-    {extraFeatures?.map((feature) => (
-      <li key={feature} className="flex items-start gap-3">
-        <CheckCircle
-          weight="fill"
-          className="h-5 w-5 flex-shrink-0 text-purple-500"
-        />
-        <span className="text-sm font-medium">{feature}</span>
       </li>
     ))}
   </ul>

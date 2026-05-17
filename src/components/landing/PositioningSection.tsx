@@ -36,7 +36,7 @@ const accentMap = {
     pillActive: "bg-[#fb8034] text-white",
   },
   dark: {
-    eyebrow: "text-slate-900",
+    eyebrow: "text-slate-400",
     iconBg: "bg-slate-900",
     iconText: "text-white",
     pillActive: "bg-slate-900 text-white",

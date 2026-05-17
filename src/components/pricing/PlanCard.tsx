@@ -1,22 +1,23 @@
 import { Button } from "@/components/main/buttons";
 import { FeaturesList } from "./FeaturesList";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+
+type PlanIcon = React.ComponentType<{
+  className?: string;
+  weight?: "duotone";
+}>;
 
 export type PlanCardProps = {
   name: string;
   description: string;
   price: string;
   priceLabel: string;
+  icon: PlanIcon;
   badge?: string;
   features: string[];
   disabledFeatures?: string[];
   actionUrl: string;
   isHighlighted?: boolean;
-  isCurrentPlan?: boolean;
-  extraFeatures?: string[];
-  buttonColor?: string;
-  savings?: number;
-  highlights?: string[];
 };
 
 export const PlanCard = ({
@@ -24,86 +25,65 @@ export const PlanCard = ({
   description,
   price,
   priceLabel,
+  icon: Icon,
   badge,
   features,
   disabledFeatures,
   actionUrl,
   isHighlighted,
-  isCurrentPlan,
-  extraFeatures,
-  highlights,
 }: PlanCardProps) => {
-  const borderClass = isHighlighted
-    ? "border-2 border-violet-500"
-    : isCurrentPlan
-      ? "border-2 border-green-500"
-      : "border border-gray-200";
-
-  const shadowClass = isHighlighted
-    ? "shadow-md hover:shadow-lg"
-    : "shadow-sm hover:shadow-md";
-
   return (
     <div
-      className={`relative w-full rounded-2xl ${borderClass} p-8 ${shadowClass} flex flex-col gap-6 transition-all ${isHighlighted ? "lg:scale-105" : ""}`}
+      className={cn(
+        "relative flex h-full flex-col rounded-3xl border p-6 sm:p-7",
+        isHighlighted
+          ? "border-[#6f8eff] bg-white shadow-lg shadow-slate-900/5"
+          : "border-slate-200 bg-slate-50",
+      )}
     >
       {badge && (
-        <div className="absolute -top-5 right-0 left-0 mx-auto w-fit rounded-full bg-violet-500 px-4 py-1 text-center text-sm font-semibold text-white">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#6f8eff] px-3 py-1 text-[11px] font-semibold tracking-wide text-white uppercase">
           {badge}
         </div>
       )}
 
-      {isCurrentPlan && (
-        <div className="absolute -top-5 right-0 left-0 mx-auto w-fit rounded-full bg-green-500 px-4 py-1 text-center text-sm font-semibold text-white">
-          CURRENT PLAN
-        </div>
-      )}
-
-      <div>
-        <h3 className="text-xl font-semibold">{name}</h3>
-        <p className="mt-1 text-sm text-gray-500">{description}</p>
+      <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#6f8eff]/10">
+        <Icon className="h-5 w-5 text-[#6f8eff]" weight="duotone" />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <div className="flex items-baseline gap-x-1">
-          <span className="text-4xl font-bold">{price}</span>
-          <span className="text-gray-500">{priceLabel}</span>
-        </div>
-      </div>
+      <h3 className="text-lg font-semibold tracking-tight text-slate-900">
+        {name}
+      </h3>
+      <p className="mt-1 text-sm leading-relaxed text-slate-500">
+        {description}
+      </p>
 
-      {highlights && highlights.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {highlights.map((highlight) => (
-            <span
-              key={highlight}
-              className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
-            >
-              {highlight}
-            </span>
-          ))}
-        </div>
-      )}
+      <div className="mt-5 flex items-baseline gap-1">
+        <span className="text-3xl font-semibold tracking-tight text-slate-900">
+          {price}
+        </span>
+        <span className="text-sm text-slate-500">{priceLabel}</span>
+      </div>
 
       <FeaturesList
         features={features}
         disabledFeatures={disabledFeatures}
-        extraFeatures={extraFeatures}
+        className="mt-6"
       />
 
-      <div className="mt-auto">
-        {isCurrentPlan ? (
-          <Button className="w-full" disabled>
-            Current plan
+      <div className="mt-auto pt-6">
+        <a href={actionUrl} className="block">
+          <Button
+            className={cn(
+              "w-full text-white transition-colors",
+              isHighlighted
+                ? "bg-[#6f8eff] hover:bg-[#5a79e8]"
+                : "bg-slate-900 hover:bg-slate-800",
+            )}
+          >
+            Get started
           </Button>
-        ) : (
-          <Link href={actionUrl} className="w-full">
-            <Button
-              className={`w-full ${isHighlighted ? "bg-violet-600 hover:bg-violet-700" : ""}`}
-            >
-              Get started
-            </Button>
-          </Link>
-        )}
+        </a>
       </div>
     </div>
   );
