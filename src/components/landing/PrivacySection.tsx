@@ -11,7 +11,7 @@ const tiers = [
   {
     label: "Pro",
     summary:
-      "Adds export-on-demand tooling, configurable retention windows, and audit logs you can hand to a board or regulator.",
+      "Adds export-on-demand tooling and configurable retention windows for the data you report to a board or regulator.",
     icon: Database,
   },
   {

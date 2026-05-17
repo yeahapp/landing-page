@@ -223,9 +223,9 @@ export default function PrivacyPage() {
             [exact data region to be confirmed]
           </span>
           . Personal data is encrypted in transit and at rest. Higher service
-          tiers add audit logs and configurable retention windows, and the
-          Enterprise tier offers the option of a self-hosted database for full
-          data sovereignty.
+          tiers add configurable retention windows, and the Enterprise tier
+          offers the option of a self-hosted database for full data
+          sovereignty.
         </P>
 
         <H2>8. Cookies and analytics</H2>

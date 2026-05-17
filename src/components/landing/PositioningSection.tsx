@@ -169,7 +169,7 @@ const TABS: ReadonlyArray<Tab> = [
       },
       {
         icon: Database,
-        title: "Structured exports and audit trails",
+        title: "Structured exports and reporting",
         description:
           "Every payment, registration, and check-in is timestamped and exportable. Reports for boards and auditors take minutes, not days.",
       },

@@ -19,7 +19,7 @@ const faqItems = [
   {
     question: "Where does our community's data live?",
     answer:
-      "By default, on YeahApp's managed infrastructure inside the EU, encrypted in transit and at rest, with GDPR-aligned handling. Pro plans add audit logs and configurable retention. Enterprise plans include the option to host the database on your own infrastructure for full data sovereignty.",
+      "By default, on YeahApp's managed infrastructure inside the EU, encrypted in transit and at rest, with GDPR-aligned handling. Pro plans add configurable retention. Enterprise plans include the option to host the database on your own infrastructure for full data sovereignty.",
   },
   {
     question: "How is payment processing handled?",
